@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/ConvertJsonToSrt/bin/Debug/net6.0-windows
+/ConvertJsonToSrt/obj
+/剪印字幕轉換
