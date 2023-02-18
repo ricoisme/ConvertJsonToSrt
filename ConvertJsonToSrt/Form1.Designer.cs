@@ -60,7 +60,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(399, 30);
             this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "d:\\myfile\\.json";
             // 
             // textBox2
             // 
@@ -68,7 +67,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(400, 30);
             this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "d:\\myfile";
             // 
             // checkBox1
             // 
@@ -107,6 +105,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "ConvertJsonToSrtForCapcut By Rico";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

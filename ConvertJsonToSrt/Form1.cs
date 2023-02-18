@@ -19,6 +19,7 @@ namespace ConvertJsonToSrt
             {
                 return;
             }
+           
             var jsonFilePath = textBox1.Text;
             var jsonFileName = Path.GetFileName(jsonFilePath);
             var outputPath = textBox2.Text;
@@ -123,6 +124,13 @@ namespace ConvertJsonToSrt
             var startTime = TimeSpan.FromSeconds(double.Parse( startSec.ToString("#0.000")));
             var endTime= TimeSpan.FromSeconds(double.Parse(endSec.ToString("#0.000")));         
             return $"{startTime.ToString(@"hh\:mm\:ss\,fff")} --> {endTime.ToString(@"hh\:mm\:ss\,fff")}"; 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            var currentPath = Application.StartupPath;
+            textBox1.Text = $"{currentPath}\\draft_content.json";
+            textBox2.Text = currentPath;
         }
     }
 }
