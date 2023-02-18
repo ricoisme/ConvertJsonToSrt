@@ -14,21 +14,21 @@ namespace ConvertJsonToSrt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CheckFile();
-
+            var result=CheckFileAndDirectory();
+            if(!result)
+            {
+                return;
+            }
             var jsonFilePath = textBox1.Text;
+            var jsonFileName = Path.GetFileName(jsonFilePath);
             var outputPath = textBox2.Text;
+            var outputFilePath = Path.Combine(outputPath, jsonFileName.Replace(".json", ".srt",StringComparison.OrdinalIgnoreCase));
             var json = File.ReadAllText(jsonFilePath, Encoding.UTF8);
           
             try
             {
-                var srtContent = Process(json);
-                if(string.IsNullOrEmpty(srtContent))
-                {
-                    MessageBox.Show("Failed");
-                }
-
-                File.WriteAllText(outputPath, srtContent, Encoding.UTF8);
+                var srtContent = ProcessConvert(json);
+                File.WriteAllText(outputFilePath, srtContent, Encoding.UTF8);
                 MessageBox.Show("Success");
             }
             catch(Exception ex)
@@ -37,27 +37,34 @@ namespace ConvertJsonToSrt
             }         
         }
 
-        private void CheckFile()
+        private bool CheckFileAndDirectory()
         {
             var jsonFilePath = textBox1.Text;
             var srtPath = textBox2.Text;
             if (string.IsNullOrEmpty(jsonFilePath)
                 || string.IsNullOrEmpty(srtPath))
             {
-                MessageBox.Show("Please input file path");
-                return;
+                MessageBox.Show("Please input path");
+                return false;
             }
 
             
             if (!File.Exists(jsonFilePath))
             {
                 MessageBox.Show("json file is not exists");
-                return;
+                return false;
             }
-           
+
+            if(!Directory.Exists(srtPath))
+            {
+                MessageBox.Show("srt directory is not exists");
+                return false;
+            }
+
+            return true;
         }
 
-        private string Process(string json)
+        private string ProcessConvert(string json)
         {          
             var jd = JsonDocument.Parse(json);
             var root = jd.RootElement;

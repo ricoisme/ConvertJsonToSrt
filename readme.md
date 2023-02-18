@@ -1,3 +1,3 @@
 ## Convert json file to srt for capcut
-* source file name is "draft_content.json"
-* need install .NET 6 Desktop runtime , download https://dotnet.microsoft.com/en-us/download/dotnet/6.0
+* The source file name is "draft_content.json" from capcut
+* This application requires the installation of .NET 6 Desktop runtime , you can download it from https://dotnet.microsoft.com/en-us/download/dotnet/6.0
