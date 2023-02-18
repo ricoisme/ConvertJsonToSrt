@@ -129,7 +129,7 @@ namespace ConvertJsonToSrt
         private void Form1_Load(object sender, EventArgs e)
         {
             var currentPath = Application.StartupPath;
-            textBox1.Text = $"{currentPath}\\draft_content.json";
+            textBox1.Text = $"{currentPath}draft_content.json";
             textBox2.Text = currentPath;
         }
     }
