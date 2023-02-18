@@ -88,7 +88,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 34);
             this.button1.TabIndex = 5;
-            this.button1.Text = "執行";
+            this.button1.Text = "GO";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -106,7 +106,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "ConvertJsonToSrtForCapcut";
+            this.Text = "ConvertJsonToSrtForCapcut By Rico";
             this.ResumeLayout(false);
             this.PerformLayout();
 
